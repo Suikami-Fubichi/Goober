@@ -20,7 +20,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector2(0, 14f);
+            if (isGrounded())
+            {
+                rb.velocity = new Vector2(0, 14f);
+            }
         }
+    }
+
+    private bool isGrounded()
+    {
+        return Physics2D.Raycast(transform.position, -Vector3.up, 0.01f);
     }
 }
