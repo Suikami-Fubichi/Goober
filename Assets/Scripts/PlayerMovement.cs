@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+     Damage.damageEvent += die;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>(); 
     }
@@ -62,7 +63,11 @@ public class PlayerMovement : MonoBehaviour
             jumps--;
             rb.velocity = new Vector2(0, 10f);
         }
-
+        
+ void die(){
+        Debug.Log("Death function goes here.");
+    }
+    
     }
 
 }
