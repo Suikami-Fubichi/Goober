@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -16,9 +17,14 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-     Damage.damageEvent += die;
+        Damage.damageEvent += die;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>(); 
+    }
+
+    private void die()
+    {
+        Debug.Log("Death function goes here.");
     }
 
     void OnCollisionEnter2D(Collision2D groundCol)
@@ -43,18 +49,19 @@ public class PlayerMovement : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-        }else if (timer < 0 && grounded == false && jumps == 0)
+        }
+        else if (timer < 0 && grounded == false && jumps == 0)
         {
             canJump = false;
         }
-            float dirX = Input.GetAxisRaw("Horizontal");
-        
+        float dirX = Input.GetAxisRaw("Horizontal");
+
         rb.velocity = new Vector2(dirX * 7f, rb.velocity.y);
-        if(dirX > 0)
+        if (dirX > 0)
         {
             playerSprite.flipX = false;
         }
-        else if(dirX < 0)
+        else if (dirX < 0)
         {
             playerSprite.flipX = true;
         }
@@ -63,11 +70,6 @@ public class PlayerMovement : MonoBehaviour
             jumps--;
             rb.velocity = new Vector2(0, 10f);
         }
-        
- void die(){
-        Debug.Log("Death function goes here.");
-    }
-    
-    }
 
+    }
 }
