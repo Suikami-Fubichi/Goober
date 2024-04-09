@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-     Damage.damageEvent += die;
+     //Damage.damageEvent += die;
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>(); 
     }
