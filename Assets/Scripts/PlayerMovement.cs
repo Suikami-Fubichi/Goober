@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public Collision2D groundCol;
     private SpriteRenderer playerSprite;
+    public GameObject spawnPoint;
     private float timer = 0f ;
     public bool grounded;
     public bool canJump;
@@ -24,7 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void die()
     {
-        Debug.Log("Death function goes here.");
+        // Death Animation would be great.
+        transform.position = spawnPoint.transform.position;
     }
 
     void OnCollisionEnter2D(Collision2D groundCol)
