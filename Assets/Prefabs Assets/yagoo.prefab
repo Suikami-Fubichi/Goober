@@ -102,7 +102,6 @@ MonoBehaviour:
   spawnpoint: {fileID: 0}
   amplitude: 0.5
   frequency: 1
-  coin: {fileID: 8300000, guid: 0d75cb1de6f604741b7d8d087fe6c6cf, type: 3}
 --- !u!70 &7089159649834508528
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +148,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0d75cb1de6f604741b7d8d087fe6c6cf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

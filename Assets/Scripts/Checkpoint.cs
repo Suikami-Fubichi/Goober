@@ -10,7 +10,6 @@ public class CheckPoint : MonoBehaviour
     Vector3 posOrigin = new Vector3();
     Vector3 tempPos = new Vector3();
     private AudioSource src;
-
     // Start is called before the first frame update
     void Start()
     {
