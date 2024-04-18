@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer playerSprite;
     public GameObject spawnPoint;
     private Animator anim;
+    private AudioSource src;
+    public AudioClip jump, coin;
+
     private float timer = 0f ;
     public bool grounded;
     public bool canJump;
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerSprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        src = GetComponent<AudioSource>();
     }
 
     private void die()
@@ -77,6 +81,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetButtonDown("Jump") && canJump)
         {
+            src.clip = jump;
+            src.Play();
             jumps--;
             rb.velocity = new Vector2(0, 10f);
         }
