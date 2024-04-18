@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Collision2D groundCol;
     private SpriteRenderer playerSprite;
     public GameObject spawnPoint;
+    private Animator anim;
     private float timer = 0f ;
     public bool grounded;
     public bool canJump;
@@ -20,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Damage.damageEvent += die;
         rb = GetComponent<Rigidbody2D>();
-        playerSprite = GetComponent<SpriteRenderer>(); 
+        playerSprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     private void die()
@@ -62,10 +64,16 @@ public class PlayerMovement : MonoBehaviour
         if (dirX > 0)
         {
             playerSprite.flipX = false;
+            anim.SetBool("running", true);
         }
         else if (dirX < 0)
         {
             playerSprite.flipX = true;
+            anim.SetBool("running", true);
+        }
+        else
+        {
+            anim.SetBool("running", false);
         }
         if (Input.GetButtonDown("Jump") && canJump)
         {
